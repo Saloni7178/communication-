@@ -147,4 +147,27 @@ with st.sidebar:
     st.header("📈 Progress")
     st.metric("Sessions completed", len(st.session_state.recordings))
     st.caption("Confidence, clarity, and fluency trends will appear here once feedback analysis is connected.")
-    
+    # Insert the api key here
+genai.configure(api_key="")
+
+SYSTEM_PROMPT = """
+You are an expert communication coach. You will be given the transcript 
+of a user's spoken response. Analyze it for:
+- Clarity of message
+- Filler words (um, uh, like, etc.)
+- Pacing and structure
+- Confidence and tone
+
+Then provide:
+1. A score out of 10 for overall communication effectiveness
+2. 3 specific, actionable pieces of feedback
+3. One rewritten example sentence showing improvement
+
+Respond in a clear, structured format.
+"""
+
+model = genai.GenerativeModel(
+    model_name="gemini-1.5-pro",
+    system_instruction=SYSTEM_PROMPT
+)
+
