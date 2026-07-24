@@ -1,7 +1,7 @@
 # communication
 Creators upaay
-<er>
-Author = creator
+/n
+Author = creators
 
 
 
@@ -147,3 +147,4 @@ with st.sidebar:
     st.header("📈 Progress")
     st.metric("Sessions completed", len(st.session_state.recordings))
     st.caption("Confidence, clarity, and fluency trends will appear here once feedback analysis is connected.")
+    
